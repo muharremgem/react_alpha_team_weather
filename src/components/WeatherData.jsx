@@ -25,11 +25,29 @@ const WeatherData = ({ WeatherData }) => {
             <p>{(((WeatherData.main.temp - 32) * 5) / 9).toFixed(0)}°</p>
             <div className="flex flex-col items-center mt-2 gap[.2rem]">
               {/* */}
-              <p>
-                Real Fell:{" "}
-                {(((WeatherData.main.feels_like - 32) * 5) / 9).toFixed(0)}°
-              </p>
+              <WeatherDetails
+                title="Real Fell"
+                data={(((WeatherData.main.temp - 32) * 5) / 9).toFixed(0)}
+                unit="°"
+              />
+              <WeatherDetails
+                title="Humidity"
+                data={WeatherData.main.humidity}
+                unit="%"
+              />
+              <WeatherDetails
+                title="Wind"
+                data={WeatherData.wind.speed}
+                unit=" km/h"
+              />
               {/* */}
+            </div>
+            <div>
+            <WeatherDetails
+                title="Wind"
+                data={WeatherData.wind.speed}
+                unit=" km/h"
+              />
             </div>
           </div>
         </div>

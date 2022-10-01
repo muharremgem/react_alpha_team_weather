@@ -3,9 +3,9 @@ import React from "react";
 const WeatherDetails = ({ title, data, unit }) => {
   return (
     <div>
-      <p>
+      <p className="text-sm">
         {title}: {" "}
-        <span>
+        <span className="font-semibold">
           {data}
           {unit}
         </span>
