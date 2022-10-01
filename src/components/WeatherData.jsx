@@ -1,9 +1,16 @@
 import React from "react";
 import { WeatherDetails } from "./index";
+import { DateTime } from "luxon";
 
 const WeatherData = ({ WeatherData }) => {
   const iconUrlCode = (code) =>
     `http://openweathermap.org/img/wn/${code}@2x.png`;
+
+  const formatToLocalTime = (
+    secs,
+    zone,
+    format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a"
+  ) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 
   return (
     <div className="max-w-screen-md mx-auto">
@@ -42,11 +49,32 @@ const WeatherData = ({ WeatherData }) => {
               />
               {/* */}
             </div>
-            <div>
-            <WeatherDetails
-                title="Wind"
-                data={WeatherData.wind.speed}
-                unit=" km/h"
+            <div className="mt-3 flex gap-3">
+              <WeatherDetails
+                title="Rise"
+                data={formatToLocalTime(
+                  WeatherData.sys.sunrise,
+                  WeatherData.timeZone,
+                  "hh:mm a"
+                )}
+              />
+              <WeatherDetails
+                title="Set"
+                data={formatToLocalTime(
+                  WeatherData.sys.sunset,
+                  WeatherData.timeZone,
+                  "hh:mm a"
+                )}
+              />
+              <WeatherDetails
+                title="High"
+                data={(((WeatherData.main.temp_max - 32) * 5) / 9).toFixed(0)}
+                unit="°"
+              />
+              <WeatherDetails
+                title="Low"
+                data={(((WeatherData.main.temp_min - 32) * 5) / 9).toFixed(0)}
+                unit="°"
               />
             </div>
           </div>
