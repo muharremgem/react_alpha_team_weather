@@ -31,6 +31,7 @@ const WeatherData = ({ WeatherData }) => {
             />
             <p>{(((WeatherData.main.temp - 32) * 5) / 9).toFixed(0)}°</p>
             <div className="flex flex-col items-center mt-2 gap[.2rem]">
+              
               {/* */}
               <WeatherDetails
                 title="Real Fell"
@@ -48,6 +49,7 @@ const WeatherData = ({ WeatherData }) => {
                 unit=" km/h"
               />
               {/* */}
+
             </div>
             <div className="mt-3 flex gap-3">
               <WeatherDetails
@@ -76,6 +78,7 @@ const WeatherData = ({ WeatherData }) => {
                 data={(((WeatherData.main.temp_min - 32) * 5) / 9).toFixed(0)}
                 unit="°"
               />
+                  
             </div>
           </div>
         </div>
