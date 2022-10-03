@@ -13,7 +13,7 @@ const WeatherData = ({ WeatherData }) => {
   ) => DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 
   return (
-    <div className="max-w-screen-md mx-auto">
+    <div className="max-w-screen-md mx-auto text-white">
       <div className="flex flex-col justify-center items-center mt-10">
         <div className="flex">
           <p className="font-semibold ">
