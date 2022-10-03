@@ -20,7 +20,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="bg-blue-600 mx-screen mx-auto flex flex-col h-full pt-[1rem] pb-[2rem] px-32">
       <Navbar />
       <Input getLocation={setLocation} getInfos={getInfo} />
       {data && <WeatherData WeatherData={data}/>}
